@@ -1,0 +1,23 @@
+<div class="container clearfix">
+  <div class="people-list" id="people-list">
+    <div class="search">
+      <input type="text" placeholder="search" />
+      <i class="fa fa-search"></i>
+    </div>
+    <button type="button" (click)="router.navigate(['home', 'addGroup'])">add Group</button>
+    <ul class="list">
+      <li class="clearfix" *ngFor="let user of users">
+        <div (click)="addChat(user)">
+          <div class="about">
+            <div class="name"> {{user.name}} </div>
+            <div class="status">
+              <i class="fa fa-circle online"></i> online
+            </div>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  <router-outlet></router-outlet>
+</div> <!-- end container -->
