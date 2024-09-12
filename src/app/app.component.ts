@@ -8,5 +8,4 @@ import { ChatService } from './services/chat.service';
 })
 export class AppComponent {
   title = 'Fronend-Chat';
-  // chatService: ChatService = inject(ChatService);
 }

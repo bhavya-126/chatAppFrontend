@@ -11,6 +11,7 @@ import { PathNotFoundComponent } from './component/path-not-found/path-not-found
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChatComponent } from './component/home/chat/chat.component';
 import { AddGroupComponent } from './component/home/add-group/add-group.component';
+import { GroupChatComponent } from './component/home/group-chat/group-chat.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AddGroupComponent } from './component/home/add-group/add-group.componen
     SignUpComponent,
     PathNotFoundComponent,
     ChatComponent,
-    AddGroupComponent
+    AddGroupComponent,
+    GroupChatComponent
   ],
   imports: [
     BrowserModule,

@@ -246,3 +246,8 @@ body {
   clear: both;
   height: 0;
 }
+
+li {
+  list-style: none;
+  cursor: pointer;
+}

@@ -1,23 +1,23 @@
-<div class="container clearfix" *ngIf="receiver.id">
+<div class="container clearfix">
   <div class="chat">
     <div class="chat-header clearfix">
       <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
 
       <div class="chat-about">
-        <div class="chat-with"> {{receiver.name}} </div>
+        <div class="chat-with"> {{groupName}} </div>
       </div>
       <i class="fa fa-star"></i>
     </div> <!-- end chat-header -->
 
     <div class="chat-history">
-      <div *ngFor="let msg of chats; let index=index">
+      <div *ngFor="let msg of chats;let index = index">
         <div class="clearfix">
-
           <div class="date" *ngIf="(msg.time|date: 'shortDate') !== (chats[index-1]?.time|date: 'shortDate')">
             {{msg.time | date: 'shortDate'}}
           </div>
 
           <div class="message-data align-right" *ngIf="msg.senderEmail===email">
+
             {{msg.message}}
             <br>
             <span class="msg-time">
@@ -25,6 +25,7 @@
             </span>
           </div>
           <div class="message-data" *ngIf="msg.senderEmail!==email">
+            <div class="msg-sender"> {{msg.senderEmail}} </div>
             {{msg.message}}
             <br>
             <span class="msg-time">
@@ -41,11 +42,8 @@
       <form [formGroup]="chatForm">
 
         <input type="text" placeholder="enter message" formControlName="message">
-        <!-- <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"
-          formControlName="message"></textarea> -->
 
-
-        <button type="submit" (click)="sendMessage()">Send</button>
+        <button type="submit" (click)="sendMsg()">Send</button>
       </form>
 
     </div> <!-- end chat-message -->

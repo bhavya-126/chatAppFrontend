@@ -1,13 +1,16 @@
+<div> {{email}} </div>
 <div class="container clearfix">
+
   <div class="people-list" id="people-list">
-    <div class="search">
+    <button type="button" (click)="logOut()">logOut</button>
+    <button type="button" (click)="router.navigate(['home', 'addGroup'])">add Group</button>
+    <!-- <div class="search">
       <input type="text" placeholder="search" />
       <i class="fa fa-search"></i>
-    </div>
-    <button type="button" (click)="router.navigate(['home', 'addGroup'])">add Group</button>
+    </div> -->
     <ul class="list">
-      <li class="clearfix" *ngFor="let user of users">
-        <div (click)="addChat(user)">
+      <li class="clearfix" *ngFor="let user of users" (click)="addChat(user)">
+        <div>
           <div class="about">
             <div class="name"> {{user.name}} </div>
             <div class="status">
@@ -17,6 +20,13 @@
         </div>
       </li>
 
+      <li class="clearfix" *ngFor="let group of groups" (click)="addGroup(group.name)">
+        <div>
+          <div class="about">
+            <div class="name"> {{group.name}} </div>
+          </div>
+        </div>
+      </li>
     </ul>
   </div>
   <router-outlet></router-outlet>

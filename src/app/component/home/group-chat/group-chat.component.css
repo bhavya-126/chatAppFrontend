@@ -148,6 +148,10 @@ body {
   position: relative;
 }
 
+.msg-sender {
+  font-size: 0.8rem;
+}
+
 .chat .chat-history .message:after {
   bottom: 100%;
   left: 7%;
@@ -251,8 +255,7 @@ body {
   height: 0;
 }
 
-
 .date {
   text-align: center;
-  font-size: 0.5rem;
+  font-size: 0.6rem;
 }

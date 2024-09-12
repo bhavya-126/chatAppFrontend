@@ -17,7 +17,7 @@ export class SignUpComponent {
   router: Router = inject(Router);
 
   signupForm: FormGroup = this.formBuilder.group({
-    name: ['', [Validators.required], Validators.minLength(3)],
+    name: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.email, Validators.required]],
     password: ['', [Validators.required, Validators.minLength(8)]]
   })

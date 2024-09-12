@@ -41,13 +41,18 @@ export class ChatComponent {
 
   ngOnInit() {
     this.activeRoute.queryParams.subscribe((query: any) => {
-      this.chatService.users.find((user: any) => {
-        if (user.id == query.userId) {
-          this.receiver = user;
-          // console.log("chatReciver", this.receiver);
+      if (query.userId) {
+        this.chatService.users.find((user: any) => {
+          if (user.id == query.userId) {
+            this.receiver = user;
+          }
+        })
+      }
 
-        }
-      })
+      // if (query.groupName) {
+      //   console.log("group name: ", query.groupName);
+      //   this.chatService.priviousChats(query.groupName)
+      // }
     })
 
     this.chatService.chats.subscribe((chats: any) => {

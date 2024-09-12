@@ -1,11 +1,32 @@
-<div class="container chat">
+<div class="container">
 
-  <form [formGroup]="form">
+  <form [formGroup]="form" (ngSubmit)="submit()">
 
     <div>
       <label for="name">Group Name</label>
       <input type="text" id="name" formControlName="name" />
     </div>
-    
+
+    <div>
+      <label for="members">members</label>
+      <ul>
+        <li *ngFor="let member of form.value.members; let index= index">
+          {{member}}
+          <button type="button" [disabled]="member===email" (click)="removeUser(member)">remove</button>
+        </li>
+      </ul>
+    </div>
+
+    <form [formGroup]="selectMember" (ngSubmit)="addUser()">
+      <label for="user">Select Member</label>
+      <select name="user" id="user" formControlName="member">
+        <option *ngFor="let user of users" [value]="(user.email)">
+          {{user.name}}
+        </option>
+      </select>
+      <button type="submit">add</button>
+    </form>
+
+    <button type="submit" [disabled]="!form.valid">create</button>
   </form>
 </div>
